@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shirt Inventory</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body class="inventoryPage">
+
+<!-- Navbar -->
+<nav class="navbar navbar-light bg-primary justify-content-between">
+    <a class="navbar-brand">Shirt Inventory System</a>
+    <a class="btn btn-success my-2 my-sm-0" data-toggle="modal" data-target="#addModal" th:action="@{/shirt/add}">Add Shirt</a>
+</nav>
+
+<!-- Table -->
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0">
+    <thead>
+        <tr>
+            <th class="th-sm">Shirt ID</th>
+            <th class="th-sm">Brand Name</th>
+            <th class="th-sm">Size</th>
+            <th class="th-sm">Price</th>
+            <th class="th-sm">Quantity</th>
+            <th class="th-sm">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="shirt : ${shirts}">
+            <td th:text="${shirt.id}">Shirt ID</td>
+            <td th:text="${shirt.brandName}">Brand Name</td>
+            <td th:text="${shirt.size}">Size</td>
+            <td th:text="${shirt.price}">Prize</td>
+            <td th:text="${shirt.quantity}">Quantity</td>
+            <td>
+                <a type="button" class="btn btn-warning" th:href="@{'/shirt/edit/' + ${shirt.id}}">Edit</a>
+                <a type="button" class="btn btn-danger" th:href="@{'/shirt/delete/' + ${shirt.id}}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div th:replace="add/index :: addForm"></div>
+<!--<div th:replace="edit/index :: editForm"></div>-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>

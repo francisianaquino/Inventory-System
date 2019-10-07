@@ -1,0 +1,25 @@
+#mainPage {
+    background-image:url("/img/background4.jpg");
+}
+
+.inventoryPage {
+    background-image:url("/img/background1.png");
+}
+
+.table {
+    margin: auto;
+    margin-top: 3rem;
+    width: 80%;
+    background-color: white;
+}
+
+.container {
+    text-align: center;
+    /*border: 3px solid black;*/
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
